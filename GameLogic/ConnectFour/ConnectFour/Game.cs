@@ -42,12 +42,12 @@ namespace Game
                 if (playerOneTurn)
                 {
                     Id = IdOne;
-                    Console.WriteLine("Player 1's turn");
+                    Console.WriteLine("Player One's turn");
                 }
                 else
                 {
                     Id = IdTwo;
-                    Console.WriteLine("Player 2's turn");
+                    Console.WriteLine("Player Two's turn");
                 }
 
                 Console.Write("Place a piece between 1 and {0}: ", Board.getColumns());
@@ -58,14 +58,17 @@ namespace Game
                 {
                     if (winConditions(userChoice - 1))
                     {
+                        board.printBoard();
+                        Console.WriteLine();
                         gameIsRunning = false;
                         if (playerOneTurn)
                         {
-                            Console.WriteLine("Player one wins");
+                            Console.WriteLine("Player one wins!!");
+                            
                         }
                         else
                         {
-                            Console.WriteLine("Player two wins");
+                            Console.WriteLine("Player two wins!!");
                         }
                     }
                     playerOneTurn = !playerOneTurn;

@@ -20,17 +20,49 @@ namespace Game
                 if(gameBoard[i, col] != null)
                 {
                     int howManyInARow = 3;
-                    for (int checkRow = i + 1; checkRow < Rows; checkRow++)
+                    for (int checkVertical = i + 1; checkVertical < Rows; checkVertical++)
                     {
-                        if (gameBoard[checkRow, col].getId() == winId)
+                        if (gameBoard[checkVertical, col].getId() == winId)
                         {
                             howManyInARow--;
+                            if (howManyInARow == 0)
+                            {
+                                winner = true;
+                            }
                         }
                         else
                         {
                             howManyInARow = 3;
                         }
                     }
+                    howManyInARow = 4;
+                    for(int checkHorizontal = col - 3; checkHorizontal <= Columns; checkHorizontal++)
+                    {
+                        if(checkHorizontal < 0)
+                        {
+                            continue;
+                        }
+                        if(checkHorizontal >= Columns)
+                        {
+                            break;
+                        }
+                        if (gameBoard[i, checkHorizontal] != null && gameBoard[i, checkHorizontal].getId() == winId)
+                        {
+                            howManyInARow--;
+                            if (howManyInARow == 0)
+                            {
+                                winner = true;
+                            }
+                        }
+                        else
+                        {
+                            howManyInARow = 4;
+                        }
+                    }
+                    howManyInARow = 4;
+
+                    
+                    break;
                 }
             }
             return winner;
