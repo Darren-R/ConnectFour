@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\n10788557\\Downloads\\GameLogic\\ConnectFour\\ConnectFour\\Game.csproj": {}
+    "C:\\Users\\n10788557\\Documents\\ConnectFour\\GameLogic\\ConnectFour\\ConnectFour\\Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\n10788557\\Downloads\\GameLogic\\ConnectFour\\ConnectFour\\Game.csproj": {
+    "C:\\Users\\n10788557\\Documents\\ConnectFour\\GameLogic\\ConnectFour\\ConnectFour\\Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\n10788557\\Downloads\\GameLogic\\ConnectFour\\ConnectFour\\Game.csproj",
+        "projectUniqueName": "C:\\Users\\n10788557\\Documents\\ConnectFour\\GameLogic\\ConnectFour\\ConnectFour\\Game.csproj",
         "projectName": "Game",
-        "projectPath": "C:\\Users\\n10788557\\Downloads\\GameLogic\\ConnectFour\\ConnectFour\\Game.csproj",
+        "projectPath": "C:\\Users\\n10788557\\Documents\\ConnectFour\\GameLogic\\ConnectFour\\ConnectFour\\Game.csproj",
         "packagesPath": "C:\\Users\\n10788557\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\n10788557\\Downloads\\GameLogic\\ConnectFour\\ConnectFour\\obj\\",
+        "outputPath": "C:\\Users\\n10788557\\Documents\\ConnectFour\\GameLogic\\ConnectFour\\ConnectFour\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\n10788557\\AppData\\Roaming\\NuGet\\NuGet.Config",

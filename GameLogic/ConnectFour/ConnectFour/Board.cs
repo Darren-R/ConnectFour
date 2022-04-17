@@ -20,6 +20,17 @@ namespace Game
                 if(gameBoard[i, col] != null)
                 {
                     int howManyInARow = 3;
+                    for (int checkRow = i + 1; checkRow < Rows; checkRow++)
+                    {
+                        if (gameBoard[checkRow, col].getId() == winId)
+                        {
+                            howManyInARow--;
+                        }
+                        else
+                        {
+                            howManyInARow = 3;
+                        }
+                    }
                 }
             }
             return winner;
