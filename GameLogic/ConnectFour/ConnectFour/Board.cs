@@ -59,9 +59,34 @@ namespace Game
                             howManyInARow = 4;
                         }
                     }
+                    /*
                     howManyInARow = 4;
 
-                    
+                    for(int checkVertical = Rows - 3; checkVertical <= Rows; checkVertical++)
+                    {
+                        if (checkVertical < 0)
+                        {
+                            continue;
+                        }
+                        if (checkVertical >= Rows)
+                        {
+                            break;
+                        }
+
+                        for (int checkHorizontal = Columns - 3; checkHorizontal <= Columns; checkHorizontal++)
+                        {
+                            if(checkHorizontal < 0)
+                            {
+                                continue;
+                            }
+                            if (checkHorizontal >= Columns)
+                            {
+                                break;
+                            }
+
+                        }
+                    }
+                    */
                     break;
                 }
             }
