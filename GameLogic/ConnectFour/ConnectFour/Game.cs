@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Game
 {
+    [Serializable]
     class Game
     {
-        private Board board;
+        public Board board;
         private String IdOne;
         private String IdTwo;
         private bool playerOneTurn;
@@ -50,7 +51,6 @@ namespace Game
                     Console.WriteLine("\nPlayer Two's turn");
                 }
 
-                //Console.Write("Place a piece between 1 and {0}: ", Board.getColumns());
                 int choice = Menu.GameMenu();
 
                 bool availableMove = board.placePiece(choice - 1, Id);

@@ -28,8 +28,10 @@
                         GameMenu();
                         break;
                     case 4:
-                        SaveOrLoad.saveGame();
-                        Console.WriteLine("Game is now saved\n");
+                        Game testGame = new Game("Y", "T");
+                        SaveOrLoad savingGame = new SaveOrLoad();
+                        savingGame.saveGame(testGame);
+                        Console.WriteLine("\nGame is now saved");
                         GameMenu();
                         break;
                     case 5:

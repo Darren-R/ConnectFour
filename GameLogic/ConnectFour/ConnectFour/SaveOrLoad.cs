@@ -9,24 +9,28 @@ namespace Game
     public class SaveOrLoad
     {
         private const string GAME_FILE = "ConnectFourSave.bin";
-        public static void saveGame()
+        public void saveGame(object data)
         {
-            FileStream fs = new FileStream(GAME_FILE, FileMode.Append);
-            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream;
+            BinaryFormatter bf = new BinaryFormatter();
+            if(File.Exists(GAME_FILE)) File.Delete(GAME_FILE);
 
-            Hashtable addresses = new Hashtable();
-            addresses.Add("Jeff", "123 Main Street, Redmond, WA 98052");
-            formatter.Serialize(fs, addresses);
-            fs.Close();
+            fileStream = File.Create(GAME_FILE);
+            bf.Serialize(fileStream, data);
+            fileStream.Close();
         }
-        public static void loadGame()
+        public static object loadGame()
         {
-            FileStream fs = new FileStream(GAME_FILE, FileMode.Open);
-            BinaryFormatter formatter = new BinaryFormatter();
-
-            Hashtable addresses = new Hashtable();
-            addresses = (Hashtable) formatter.Deserialize(fs);
-            fs.Close();
+            object obj = null;
+            FileStream fileStream;
+            BinaryFormatter bf = new BinaryFormatter();
+            if (File.Exists(GAME_FILE))
+            {
+                fileStream = File.OpenRead(GAME_FILE);
+                obj = bf.Deserialize(fileStream);
+                fileStream.Close();
+            }
+            return obj;
         }
     }
 }

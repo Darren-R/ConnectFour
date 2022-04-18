@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
+    [Serializable]
     class Board
     {
         private const int Rows = 6, Columns = 7;

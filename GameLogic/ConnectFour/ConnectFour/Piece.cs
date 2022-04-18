@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
+    [Serializable]
     class Piece
     {
         private String Id;
@@ -13,7 +14,6 @@ namespace Game
         {
             return Id;
         }
-
         public void setId(String id)
         {
             Id = id;

@@ -1,4 +1,10 @@
-﻿namespace Game
+﻿using System;
+using System.IO;
+using System.Collections;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+
+namespace Game
 {
     class Program
     {
@@ -21,8 +27,9 @@
                     Console.WriteLine("In development");
                     break;
                 case 3:
-                    SaveOrLoad.loadGame();
-                    Console.ReadLine();
+                    Game previousSave = null;
+                    previousSave = SaveOrLoad.loadGame() as Game;
+                    previousSave.startGame();
                     break;
                 case 4:
                     Environment.Exit(0);
