@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game
+﻿namespace Game
 {
     public class Menu
     {
@@ -34,7 +28,8 @@ namespace Game
                         GameMenu();
                         break;
                     case 4:
-                        Console.WriteLine("In development");
+                        SaveOrLoad.saveGame();
+                        Console.WriteLine("Game is now saved\n");
                         GameMenu();
                         break;
                     case 5:

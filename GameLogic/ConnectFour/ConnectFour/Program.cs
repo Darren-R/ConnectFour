@@ -21,7 +21,8 @@
                     Console.WriteLine("In development");
                     break;
                 case 3:
-                    Console.WriteLine("In development");
+                    SaveOrLoad.loadGame();
+                    Console.ReadLine();
                     break;
                 case 4:
                     Environment.Exit(0);
