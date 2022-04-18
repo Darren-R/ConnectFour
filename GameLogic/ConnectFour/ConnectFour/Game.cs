@@ -42,21 +42,21 @@ namespace Game
                 if (playerOneTurn)
                 {
                     Id = IdOne;
-                    Console.WriteLine("Player One's turn");
+                    Console.WriteLine("\nPlayer One's turn");
                 }
                 else
                 {
                     Id = IdTwo;
-                    Console.WriteLine("Player Two's turn");
+                    Console.WriteLine("\nPlayer Two's turn");
                 }
 
-                Console.Write("Place a piece between 1 and {0}: ", Board.getColumns());
-                int userChoice = Convert.ToInt32(Console.ReadLine());
+                //Console.Write("Place a piece between 1 and {0}: ", Board.getColumns());
+                int choice = Menu.GameMenu();
 
-                bool availableMove = board.placePiece(userChoice - 1, Id);
+                bool availableMove = board.placePiece(choice - 1, Id);
                 if (availableMove)
                 {
-                    if (winConditions(userChoice - 1))
+                    if (winConditions(choice - 1))
                     {
                         board.printBoard();
                         Console.WriteLine();
