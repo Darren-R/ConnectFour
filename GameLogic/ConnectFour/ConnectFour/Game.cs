@@ -13,20 +13,20 @@ namespace Game
         private String IdOne;
         private String IdTwo;
         private bool playerOneTurn;
+        private bool computerPlayer;
 
         public bool winConditions(int col) 
         {
-            bool winner = false;
-
             String winId = playerOneTurn ? IdOne : IdTwo;
-
             return board.winCondition(col, winId);
         }
-        public Game(String playerOne, String PlayerTwo)
+        public Game(String playerOne, String playerTwo, bool computer)
         {
             board = new Board();
             IdOne = playerOne;
-            IdTwo = PlayerTwo;
+            IdTwo = playerTwo;
+            computerPlayer = computer;
+
 
             var rand = new Random();
 
@@ -38,20 +38,28 @@ namespace Game
             bool gameIsRunning = true;
             while (gameIsRunning)
             {
+                int choice;
                 board.printBoard();
                 String Id;
                 if (playerOneTurn)
                 {
                     Id = IdOne;
                     Console.WriteLine("\nPlayer One's turn");
+                    choice = Menu.GameMenu();
+                }
+                else if (computerPlayer == true && !playerOneTurn)
+                {
+                    Id = IdTwo;
+                    Console.WriteLine("\nComputer player Two's turn");
+                    var rand = new Random();
+                    choice = rand.Next(2, 7);
                 }
                 else
                 {
                     Id = IdTwo;
                     Console.WriteLine("\nPlayer Two's turn");
+                    choice = Menu.GameMenu();
                 }
-
-                int choice = Menu.GameMenu();
 
                 bool availableMove = board.placePiece(choice - 1, Id);
                 if (availableMove)

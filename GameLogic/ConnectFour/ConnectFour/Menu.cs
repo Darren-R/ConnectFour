@@ -28,7 +28,7 @@
                         GameMenu();
                         break;
                     case 4:
-                        Game testGame = new Game("Y", "T");
+                        Game testGame = new Game("Y", "T", false);
                         SaveOrLoad savingGame = new SaveOrLoad();
                         savingGame.saveGame(testGame);
                         Console.WriteLine("\nGame is now saved");

@@ -20,11 +20,13 @@ namespace Game
             switch (choice)
             {
                 case 1:
-                    Game newGame = new Game("X", "O");
+                    Game newGame = new Game("X", "O", false);
                     newGame.startGame();
                     break;
                 case 2:
                     Console.WriteLine("In development");
+                    Game aiGame = new Game("X", "O", true);
+                    aiGame.startGame();
                     break;
                 case 3:
                     Game previousSave = null;
