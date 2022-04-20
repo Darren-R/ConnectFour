@@ -59,38 +59,32 @@ namespace Game
                         {
                             howManyInARow = 4;
                         }
+                        break;
                     }
-                    /*
-                    howManyInARow = 4;
-
-                    for(int checkVertical = Rows - 3; checkVertical <= Rows; checkVertical++)
-                    {
-                        if (checkVertical < 0)
-                        {
-                            continue;
-                        }
-                        if (checkVertical >= Rows)
-                        {
-                            break;
-                        }
-
-                        for (int checkHorizontal = Columns - 3; checkHorizontal <= Columns; checkHorizontal++)
-                        {
-                            if(checkHorizontal < 0)
-                            {
-                                continue;
-                            }
-                            if (checkHorizontal >= Columns)
-                            {
-                                break;
-                            }
-
-                        }
-                    }
-                    */
-                    break;
                 }
             }
+            /*
+            for(int i = 3; i < Rows; i++)
+            {
+                for(int j = 0; j < Columns; j++)
+                {
+                    if(gameBoard[i,j].getId() == winId && gameBoard[i - 1,j + 1].getId() == winId && gameBoard[i - 2, j + 2].getId() == winId && gameBoard[i - 3, j + 3].getId() == winId)
+                    {
+                        winner = true;
+                    }
+                }
+            }
+            for (int i = 3; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    if (gameBoard[i, j].getId() == winId && gameBoard[i - 1, j - 1].getId() == winId && gameBoard[i - 2, j - 2].getId() == winId && gameBoard[i - 3, j - 3].getId() == winId)
+                    {
+                        winner = true;
+                    }
+
+                }
+            }*/
             return winner;
         }
         public bool placePiece(int colPlacing, String playerId)

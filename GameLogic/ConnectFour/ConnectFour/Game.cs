@@ -9,7 +9,7 @@ namespace Game
     [Serializable]
     class Game
     {
-        public Board board;
+        private Board board;
         private String IdOne;
         private String IdTwo;
         private bool playerOneTurn;
@@ -50,7 +50,7 @@ namespace Game
                 else if (computerPlayer == true && !playerOneTurn)
                 {
                     Id = IdTwo;
-                    Console.WriteLine("\nComputer player Two's turn");
+                    Console.WriteLine("\nComputer Player Two's turn");
                     var rand = new Random();
                     choice = rand.Next(2, 7);
                 }
