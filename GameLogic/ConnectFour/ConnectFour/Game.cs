@@ -74,6 +74,10 @@ namespace Game
                             Console.WriteLine("Player one wins!!");
                             
                         }
+                        else if (computerPlayer == true && !playerOneTurn)
+                        {
+                            Console.WriteLine("Computer Player two wins!!");
+                        }
                         else
                         {
                             Console.WriteLine("Player two wins!!");
