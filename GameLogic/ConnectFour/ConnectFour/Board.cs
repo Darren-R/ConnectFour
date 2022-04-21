@@ -11,6 +11,7 @@ namespace Game
     {
         private const int Rows = 6, Columns = 7;
         public Piece[,] gameBoard = new Piece[Rows, Columns];
+        public List<Piece> PiecesList = new List<Piece>();
 
         public bool winCondition(int col, String winId)
         {
@@ -137,6 +138,7 @@ namespace Game
                         {
                             gameBoard[i, colPlacing] = new Piece();
                             gameBoard[i, colPlacing].setId(playerId);
+                            PiecesList.Add(gameBoard[i, colPlacing]);
                             return true;
                         }
                     }
