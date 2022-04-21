@@ -16,17 +16,19 @@ namespace Game
         {
             bool winner = false;
 
-            for (int i = 0; i < Rows; i++)
-            {
-                if(gameBoard[i, col] != null)
+            for (int row = 0; row < Rows; row++)
+            { 
+                if(gameBoard[row, col] != null)
                 {
                     int howManyInARow = 3;
-                    for (int checkVertical = i + 1; checkVertical < Rows; checkVertical++)
+
+                    //Down
+                    for (int winRow = row + 1; winRow < Rows; winRow++)
                     {
-                        if (gameBoard[checkVertical, col].getId() == winId)
-                        {
-                            howManyInARow--;
-                            if (howManyInARow == 0)
+                        if(gameBoard[winRow, col].getId() == winId) 
+                        { 
+                            howManyInARow--; 
+                            if(howManyInARow == 0)
                             {
                                 winner = true;
                             }
@@ -36,18 +38,20 @@ namespace Game
                             howManyInARow = 3;
                         }
                     }
+
                     howManyInARow = 4;
-                    for(int checkHorizontal = col - 3; checkHorizontal <= Columns; checkHorizontal++)
+                    //Across
+                    for(int winCol = col - 3; winCol <= Columns; winCol++)
                     {
-                        if(checkHorizontal < 0)
+                        if(winCol < 0)
                         {
                             continue;
                         }
-                        if(checkHorizontal >= Columns)
+                        if (winCol >= Columns)
                         {
                             break;
                         }
-                        if (gameBoard[i, checkHorizontal] != null && gameBoard[i, checkHorizontal].getId() == winId)
+                        if(gameBoard[row, winCol] != null && gameBoard[row, winCol].getId() == winId)
                         {
                             howManyInARow--;
                             if (howManyInARow == 0)
@@ -59,34 +63,68 @@ namespace Game
                         {
                             howManyInARow = 4;
                         }
-                        break;
                     }
-                }
-            }
-            /*
-            for(int i = 3; i < Rows; i++)
-            {
-                for(int j = 0; j < Columns; j++)
-                {
-                    if(gameBoard[i,j].getId() == winId && gameBoard[i - 1,j + 1].getId() == winId && gameBoard[i - 2, j + 2].getId() == winId && gameBoard[i - 3, j + 3].getId() == winId)
+                    howManyInARow = 4;
+
+                    //Left Diagonal
+                    for(int winRow = row - 3, winCol = col -3; winRow <= row + 3 && winCol <= col + 3; winRow++,winCol++)
                     {
-                        winner = true;
-                    }
-                }
-            }
-            for (int i = 3; i < Rows; i++)
-            {
-                for (int j = 0; j < Columns; j++)
-                {
-                    if (gameBoard[i, j].getId() == winId && gameBoard[i - 1, j - 1].getId() == winId && gameBoard[i - 2, j - 2].getId() == winId && gameBoard[i - 3, j - 3].getId() == winId)
-                    {
-                        winner = true;
+                        if(winRow < 0 || winCol < 0)
+                        {
+                            continue;
+                        }
+                        if(winRow >= Rows || winCol >= Columns)
+                        {
+                            break;
+                        }
+
+                        if (gameBoard[winRow, winCol] != null && gameBoard[winRow, winCol].getId() == winId)
+                        {
+                            howManyInARow--;
+                            if (howManyInARow == 0)
+                            {
+                                winner = true;
+                            }
+                        }
+                        else
+                        {
+                            howManyInARow = 4;
+                        }
                     }
 
+                    howManyInARow = 4;
+
+                    //Right Diagonal
+                    for (int winRow = row - 3, winCol = col + 3; winRow <= row + 3 && winCol >= col - 3; winRow++, winCol--)
+                    {
+                        if (winRow < 0 || winCol >= Columns)
+                        {
+                            continue;
+                        }
+                        if (winRow >= Rows || winCol < 0)
+                        {
+                            break;
+                        }
+
+                        if (gameBoard[winRow, winCol] != null && gameBoard[winRow, winCol].getId() == winId)
+                        {
+                            howManyInARow--;
+                            if (howManyInARow == 0)
+                            {
+                                winner = true;
+                            }
+                        }
+                        else
+                        {
+                            howManyInARow = 4;
+                        }
+                    }
+                    break;
                 }
-            }*/
+            }
             return winner;
         }
+        
         public bool placePiece(int colPlacing, String playerId)
         {
             if (colPlacing >= 0 && colPlacing < Columns)
