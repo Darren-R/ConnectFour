@@ -9,24 +9,17 @@ namespace Game
     [Serializable]
     class Game
     {
-        public Board board;
+        private Board board;
         private String IdOne;
         private String IdTwo;
         private bool playerOneTurn;
         private bool computerPlayer;
         private List<Board> previousBoards = new List<Board>();
 
-        public List<Board> PreviousBoards
+        public Board SaveGame()
         {
-            get { return previousBoards; }
-            set { previousBoards = value; }
+            return board;
         }
-        
-        public List<Board> getList()
-        { 
-            return previousBoards;
-        }
-        
         public bool winConditions(int col) 
         {
             String winId = playerOneTurn ? IdOne : IdTwo;
@@ -72,6 +65,7 @@ namespace Game
                     Console.WriteLine("\nPlayer Two's turn");
                     choice = Menu.GameMenu();
                 }
+
                 if (choice == 0)
                 {
                     if(previousBoards.Count > 0)
@@ -79,7 +73,6 @@ namespace Game
                         board = null;
                         board = new Board();
                         board = previousBoards[previousBoards.Count - 1];
-                        board.printBoard();
                         if(previousBoards.Any())
                         {
                             previousBoards.RemoveAt(previousBoards.Count - 1);
@@ -90,22 +83,14 @@ namespace Game
                     {
                         board = null;
                         board = new Board();
-                        board.printBoard();
                     }
                     else
                     {
-                        board.printBoard();
                         continue;
                     }
-
-                    /*
-                    foreach(Board b in previousBoards)
-                    {
-                        b.printBoard();
-                    }
-                    */
                     
                 }
+
                 bool availableMove = board.placePiece(choice - 1, Id);
                 if (availableMove)
                 {

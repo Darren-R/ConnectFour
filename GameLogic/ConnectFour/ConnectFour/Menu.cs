@@ -25,12 +25,9 @@
                     case 3:
                         return choice = UserChoice.NumberRequested("0 to confirm Undo");
                     case 4:
-                        /*
-                        Game testGame = new Game("Y", "T", false);
-                        SaveOrLoad savingGame = new SaveOrLoad();
-                        savingGame.saveGame(testGame);
+                        Game testSave = new Game("X", "O", false);
+                        SaveOrLoad.saveGame(Board, testSave);
                         Console.WriteLine("\nGame is now saved");
-                        */
                         GameMenu();
                         break;
                     case 5:
@@ -57,7 +54,7 @@
                 "\nTo access each choice you press the number on the left\n" +
                 "\n1: Make a move. In this move we press the column where we would like to drop our piece from the top of the board." +
                 "\n2: Access help menu. This is where we are now." +
-                "\n3: Undo move. This takes back your previous move" +
+                "\n3: Undo move. This takes back your previous move, ongoing bug where once you first use undo must use it a second time." +
                 "\n4: Save game. This saves a game, you will be able to load it again on the game load screen" +
                 "\n5: Quit. Immediately exit game.");
             GameMenu();

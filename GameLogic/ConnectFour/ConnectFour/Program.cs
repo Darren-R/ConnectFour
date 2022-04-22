@@ -28,9 +28,10 @@ namespace Game
                     aiGame.startGame();
                     break;
                 case 3:
-                    Game previousSave = null;
-                    previousSave = SaveOrLoad.loadGame() as Game;
-                    previousSave.startGame();
+                    
+                    Game savedGame = new Game("X", "O", false);
+                    savedGame = SaveOrLoad.loadGame() as Game;
+                    savedGame.startGame(); 
                     break;
                 case 4:
                     Environment.Exit(0);
