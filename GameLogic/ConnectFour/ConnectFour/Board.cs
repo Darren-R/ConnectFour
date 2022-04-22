@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System.Collections.Generic;
 
 namespace Game
 {
@@ -11,8 +14,7 @@ namespace Game
     {
         private const int Rows = 6, Columns = 7;
         public Piece[,] gameBoard = new Piece[Rows, Columns];
-        public List<Piece> PiecesList = new List<Piece>();
-
+        
         public bool winCondition(int col, String winId)
         {
             bool winner = false;
@@ -138,7 +140,6 @@ namespace Game
                         {
                             gameBoard[i, colPlacing] = new Piece();
                             gameBoard[i, colPlacing].setId(playerId);
-                            PiecesList.Add(gameBoard[i, colPlacing]);
                             return true;
                         }
                     }

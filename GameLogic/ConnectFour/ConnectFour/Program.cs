@@ -24,7 +24,6 @@ namespace Game
                     newGame.startGame();
                     break;
                 case 2:
-                    Console.WriteLine("In development");
                     Game aiGame = new Game("X", "O", true);
                     aiGame.startGame();
                     break;

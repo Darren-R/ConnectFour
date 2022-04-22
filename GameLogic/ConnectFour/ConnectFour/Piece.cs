@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game
 {
     [Serializable]
-    class Piece
+    public class Piece
     {
         private String Id;
         public String getId()
