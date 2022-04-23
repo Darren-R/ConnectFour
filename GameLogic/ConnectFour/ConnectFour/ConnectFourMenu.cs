@@ -1,12 +1,13 @@
-﻿namespace Game
+﻿
+namespace Game
 {
-    public class Menu
+    public class ConnectFourMenu
     {
         public static int GameMenu()
         {
             Console.WriteLine();
 
-            Console.WriteLine("Connect Four Menu:");
+            Console.WriteLine("Your turn menu:");
             Console.WriteLine("1: Make a move");
             Console.WriteLine("2: Access help menu");
             Console.WriteLine("3: Undo move, note required to be actioned twice on first attempt");
@@ -15,7 +16,7 @@
 
             int choice = UserChoice.NumberRequested("Menu Choice");
             {
-                switch(choice)
+                switch (choice)
                 {
                     case 1:
                         return choice = UserChoice.NumberRequested("a piece between 1 and 7");
@@ -25,8 +26,8 @@
                     case 3:
                         return choice = UserChoice.NumberRequested("0 to confirm Undo");
                     case 4:
-                        Game testSave = new Game("X", "O", false);
-                        SaveOrLoad.saveGame(Board, testSave);
+                        ConnectFourGame testSave = new ConnectFourGame("X", "O", false);
+                        //SaveOrLoad.saveGame(Board, testSave);
                         Console.WriteLine("\nGame is now saved");
                         GameMenu();
                         break;

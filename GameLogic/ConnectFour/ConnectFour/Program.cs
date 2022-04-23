@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
-
+﻿
 namespace Game
 {
     class Program
@@ -20,17 +15,16 @@ namespace Game
             switch (choice)
             {
                 case 1:
-                    Game newGame = new Game("X", "O", false);
+                    ConnectFourGame newGame = new ConnectFourGame("X", "O", false);
                     newGame.startGame();
                     break;
                 case 2:
-                    Game aiGame = new Game("X", "O", true);
+                    ConnectFourGame aiGame = new ConnectFourGame("X", "O", true);
                     aiGame.startGame();
                     break;
                 case 3:
-                    
-                    Game savedGame = new Game("X", "O", false);
-                    savedGame = SaveOrLoad.loadGame() as Game;
+                    ConnectFourGame savedGame = new ConnectFourGame("X", "O", false);
+                    savedGame = SaveOrLoad.loadGame() as ConnectFourGame;
                     savedGame.startGame(); 
                     break;
                 case 4:

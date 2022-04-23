@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using System.Collections.Generic;
-
+﻿
 namespace Game
 {
     [Serializable]
-    class Board
+    class ConnectFourBoard : IGameBoards
     {
         private const int Rows = 6, Columns = 7;
         public Piece[,] gameBoard = new Piece[Rows, Columns];
         
-        public bool winCondition(int col, String winId)
+        public bool winCondition(int col, string winId)
         {
             bool winner = false;
 
@@ -128,7 +120,7 @@ namespace Game
             return winner;
         }
         
-        public bool placePiece(int colPlacing, String playerId)
+        public bool placePiece(int colPlacing, string playerId)
         {
             if (colPlacing >= 0 && colPlacing < Columns)
             { 
@@ -188,7 +180,7 @@ namespace Game
                 Console.WriteLine();
             }
         }
-        public Board()
+        public ConnectFourBoard()
         {
             for (int i = 0; i < Rows; i++)
             {
